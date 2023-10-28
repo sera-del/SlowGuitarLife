@@ -1,9 +1,9 @@
-<div class="title">
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
   <div class="title-container">
     <h2>ユーザー登録</h2>
   </div>
 </div>
-<div class="bg-image", style="background-image: url('<%= asset_path('firstview.jpg') %>'); height: 500px; padding: 40px 10px">
+<div class="bg-image", style="padding: 40px 10px">
   <div class=main-container>
     <h2>|アカウントを作成</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
