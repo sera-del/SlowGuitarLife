@@ -11,7 +11,7 @@
 
       <div class="field">
         <%= f.label :username, "ユーザー名" %><br />
-        <%= f.email_field :username, autofocus: true, autocomplete: "email" %>
+        <%= f.text_field :username, autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="field">
@@ -22,7 +22,7 @@
       <div class="field">
         <%= f.label :password, "パスワード" %>
         <% if @minimum_password_length %>
-        <em>(最低<%= @minimum_password_length %>文字以内)</em>
+        <em>(最低<%= @minimum_password_length %>文字以上)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
@@ -36,6 +36,8 @@
         <%= f.submit "新規登録する", class: "btn btn-info" %>
       </div>
     <% end %>
-    <%= render "devise/shared/links" %>
+    <hr class="hr-black">
+    <p>すでにアカウントをお持ちの場合は<%= render "devise/shared/links" %>してください。</p>
+    <p>アカウントを作成せずに利用する場合は、ゲストログインをお使いください。</p>
   </div>
 </div>

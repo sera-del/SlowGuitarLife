@@ -15,3 +15,8 @@
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     border-color: #333
 }
+
+.actions {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
