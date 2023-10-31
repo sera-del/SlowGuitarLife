@@ -36,3 +36,17 @@ footer {
     max-width: 950px;
     margin: 0 auto;
 }
+
+.flash-message {
+    padding: 16px 24px;
+  }
+   
+  .flash-message.notice {
+    background-color: #bcdfff;
+    color: #0067C0;
+  }
+   
+  .flash-message.alert {
+    background-color: #ffd4d1;
+    color: #930403;
+  }
