@@ -1,8 +1,11 @@
+body {
+    padding-top: 58px;
+}
+
 .title-container {
     max-width: 970px;
     padding: 30px 10px 25px;
     margin: 0 auto;
-    margin-top: 58px;
     color: #fff;
     height: 100px;
 }
