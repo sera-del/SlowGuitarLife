@@ -36,16 +36,15 @@ footer {
     margin: 0 auto;
 }
 
-.flash-message {
-    padding: 16px 24px;
-  }
-   
-  .flash-message.notice {
-    background-color: #bcdfff;
-    color: #0067C0;
-  }
-   
-  .flash-message.alert {
-    background-color: #ffd4d1;
-    color: #930403;
-  }
+.Notification {
+    .notice {
+      background-color: #38AEF0;
+      color: #fff;
+      text-align: center;
+    }
+    .alert {
+      background-color: #F35500;
+      color: #fff;
+      text-align: center;
+    }
+}
