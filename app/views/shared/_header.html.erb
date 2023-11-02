@@ -30,21 +30,19 @@
       <div class="d-flex align-items-center">
         <% if user_signed_in? %>
           <div class="dropdown">
-            <a
-              class="dropdown-toggle d-flex align-items-center hidden-arrow"
-              href="#"
+            <span
+              class="dropdown-toggle align-items-center hidden-arrow"
               id="navbarDropdownMenuAvatar"
               role="button"
               data-mdb-toggle="dropdown"
               aria-expanded="false">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                class="rounded-circle"
-                height="25"
-                alt="Black and White Portrait of a Man"
-                loading="lazy"/>
-            </a>
-            <%= "#{current_user.username}" %>
+              <% if current_user.user_img? %>
+                <%= image_tag current_user.user_img.url, class: "rounded-circle", size: "40x40", alt: "User_image" %>
+              <% else %>
+                <%= image_tag "default_img.png", class: "rounded-circle", size: "40x40", alt: "Defualt image" %>
+              <% end %>
+                <%= "#{current_user.username}" %>
+            </span>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
               <li><%= link_to "マイページ", "#", class: "dropdown-item" %></li>
               <li><%= link_to "設定", "#", class: "dropdown-item" %></li>
@@ -54,11 +52,11 @@
             </ul>
           </div>
         <% else %>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
-          <li><%= link_to "ゲストログイン", "#", class: "nav-link" %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
-        </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
+            <li><%= link_to "ゲストログイン", "#", class: "nav-link" %></li>
+            <li><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
+          </ul>
         <% end %>
       </div>
     </div>
