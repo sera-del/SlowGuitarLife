@@ -44,7 +44,7 @@
                 <%= "#{current_user.username}" %>
             </span>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-              <li><%= link_to "マイページ", "#", class: "dropdown-item" %></li>
+              <li><%= link_to "マイページ", user_path(current_user), class: "dropdown-item" %></li>
               <li><%= link_to "設定", users_account_path, class: "dropdown-item" %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delite, class: "dropdown-item" %></li>
               <li><%= link_to "退会", "#", class: "dropdown-item" %></li>
