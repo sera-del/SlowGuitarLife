@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
   root to: 'homes#index'
   get 'users/account', to: 'users#account'
-  get 'users/profile', to: 'users#profile'
+  get 'users/show', to: 'users#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
