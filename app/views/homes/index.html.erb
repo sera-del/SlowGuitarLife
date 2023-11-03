@@ -1,13 +1,23 @@
-<div class="p-5 text-center bg-image", style="background-image: url('<%= asset_path('guitar_top.jpg') %>'); height: 400px">
+<div class="p-5 text-center bg-image", style="background-image: url('<%= asset_path('guitar_top.jpg') %>'); height: 500px">
   <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
     <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-white">
-        <h1 class="mb-3">1日1フレーズ。気ままにギター生活</h1>
-        <p class="mb-3">レッスン代0円。必要なのはあなたの時間だけ。</p>
-        <p class="mb-3">気になったフレーズを検索しよう！</p>
-        <a class="btn btn-outline-light btn-lg" href="#!" role="button"
-        >Call to action</a
-        >
+      <div>
+        <div class="text-white">
+          <h1 class="mb-3">1日1フレーズ。気ままにギター生活</h1>
+          <p class="mb-3">レッスン代0円。必要なのはあなたの時間だけ。</p>
+          <p class="mb-3">気になったフレーズを検索しよう！</p>
+        </div>
+        <p><%= link_to ">新規登録はこちら", new_user_registration_path, class: "btn btn-info btn-lg col-6" %></p>
+        <%= link_to ">ログインはこちら", new_user_session_path, class: "btn btn-outline-info btn-lg col-5" %>
+        <%= link_to ">ゲストログインはこちら", "#", class: "btn btn-outline-info btn-lg col-5" %>
+        <div class="text-white">
+          <hr class="top-title-hr">
+          <p>＼キーワードで投稿を検索／</p>
+        </div>
+        <div class="input-group">
+          <input type="text" class="form-control rounded" placeholder="キーワードで投稿を検索" aria-label="Search" aria-describedby="search-addon" />
+          <button type="button" class="btn btn-primary">検索</button>
+        </div>
       </div>
     </div>
   </div>
