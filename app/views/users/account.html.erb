@@ -7,36 +7,43 @@
 <div class="bg-image", style="padding: 130px 10px">
   <div class="main-container">
     <table class="table align-middle mb-3 bg-white">
-      <thead class="bg-light">
-        <tr>
-          <th>ユーザー名</th>
-          <th>ギター歴</th>
-          <th>プロフィール</th>
-          <th>パスワード</th>
-        </tr>
-      </thead>
       <tbody>
         <tr>
+          <th>アイコン画像</th>
           <td>
-            <div class="d-flex align-items-center">
-              <% if current_user.user_img? %>
-                <%= image_tag current_user.user_img.url, class: "rounded-circle", size: "40x40", alt: "User_image" %>
-              <% else %>
-                <%= image_tag "default_img.png", class: "rounded-circle", size: "40x40", alt: "Defualt image" %>
-              <% end %>
-              <div class="ms-3">
-                <p class="fw-bold mb-1"><%= current_user.username %></p>
-                <p class="text-muted mb-0"><%= current_user.email %></p>
-              </div>
-            </div>
+            <% if current_user.user_img? %>
+              <%= image_tag current_user.user_img.url, class: "rounded-circle", size: "40x40", alt: "User_image" %>
+            <% else %>
+              <%= image_tag "default_img.png", class: "rounded-circle", size: "40x40", alt: "Defualt image" %>
+            <% end %>
           </td>
+        </tr>
+        <tr>
+          <th>ユーザー名</th>
           <td>
-            <p class="fw-normal mb-1">クラシックギター</p>
-            <p class="text-muted mb-0">5年</p>
+            <%= current_user.username %>
           </td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
           <td>
-            ゲーム音楽が好きです。
+            <%= current_user.email %>
           </td>
+        </tr>
+        <tr>
+          <th>ギターの種類</th>
+          <td>
+            <%= current_user.guitar_type %>
+          </td>
+        </tr>
+        <tr>
+          <th>プロフィール</th>
+          <td>
+            <%= current_user.profile %>
+          </td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
           <td>
             ********
           </td>
@@ -44,7 +51,7 @@
       </tbody>
     </table>
     <div>
-      <%= link_to "編集する", "#", class: "btn btn-info" %>
+      <%= link_to "編集する", edit_user_registration_path, class: "btn btn-info" %>
     </div>
   </div>
 </div>
