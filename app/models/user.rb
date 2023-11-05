@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :profile, length: { maximum: 20 }
-  validates :guitar_type, length { maximum: 10 }
-  validates :years_experience, length { maximum: 2 }
+  validates :guitar_type, length: { maximum: 10 }
+  validates :years_experience, length: { maximum: 2 }
 end
