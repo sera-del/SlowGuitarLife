@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
+  validates :username, presence: true
   validates :profile, length: { maximum: 50 }
   validates :guitar_type, length: { maximum: 10 }
   validates :years_experience, length: { maximum: 2 }
+
+  has_one_attached :user_img
 end
