@@ -33,7 +33,11 @@
         <tr>
           <th>ギターの種類</th>
           <td>
-            <%= @user.guitar_type %>
+            <% if @user.guitar_type.present? %>
+              <%= @user.guitar_type %>
+            <% else %>
+              未設定
+            <% end %>
           </td>
         </tr>
         <tr>
