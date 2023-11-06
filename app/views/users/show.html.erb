@@ -1,5 +1,52 @@
 <div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
   <div class="title-container">
-  <h2><%= @user.username %>さんの投稿一覧</h2>
+    <div>
+      <% if @user.user_img.attached? %>
+        <%= image_tag @user.user_img, class: "rounded-circle", size: "80x80" %>
+      <% else %>
+        <%= image_tag "default_img.png", class: "rounded-circle", size: "80x80", alt: "Defualt image" %>
+      <% end %>
+    </div>
+    <h2 class="fw-bold"><%= @user.username %></h2>
+    <p><%= @user.profile %></p>
+    <table class="table">
+      <thead class="table-light">
+        <th>投稿数</th>
+        <th>ギターの種類</th>
+        <th>経験年数</th>
+        <th>好きな音楽のジャンル</th>
+      </thead>
+      <tbody>
+        <tr class="table-light">
+          <td>0</td>
+          <td>
+            <% if @user.guitar_type.present? %>
+              <%= @user.guitar_type %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+          <td>
+            <% if @user.years_experience.present? %>
+              <%= "#{@user.years_experience}年" %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+          <td>
+            <% if @user.category.present? %>
+              <%= @user.category %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="bg-image", style="padding: 50px 10px">
+  <div class="main-container">
+    <h3>|<%= @user.username %>の投稿一覧</h3>
   </div>
 </div>
