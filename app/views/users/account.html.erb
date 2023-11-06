@@ -4,7 +4,7 @@
     <p>アカウント情報では現在登録中の情報をご確認いただけます。編集する場合は、編集するボタンをクリックしてください。</p>
   </div>
 </div>
-<div class="bg-image", style="padding: 130px 10px">
+<div class="bg-image", style="padding: 50px 10px">
   <div class="main-container">
     <table class="table align-middle mb-3 bg-white">
       <tbody>
@@ -12,7 +12,7 @@
           <th>アイコン画像</th>
           <td>
             <% if @user.user_img.attached? %>
-              <%= image_tag current_user.user_img, class: "rounded-circle", size: "40x40" %>
+              <%= image_tag @user.user_img, class: "rounded-circle", size: "40x40" %>
             <% else %>
               <%= image_tag "default_img.png", class: "rounded-circle", size: "40x40", alt: "Defualt image" %>
             <% end %>
@@ -21,25 +21,45 @@
         <tr>
           <th>ユーザー名</th>
           <td>
-            <%= current_user.username %>
+            <%= @user.username %>
           </td>
         </tr>
         <tr>
           <th>メールアドレス</th>
           <td>
-            <%= current_user.email %>
+            <%= @user.email %>
           </td>
         </tr>
         <tr>
           <th>ギターの種類</th>
           <td>
-            <%= current_user.guitar_type %>
+            <%= @user.guitar_type %>
+          </td>
+        </tr>
+        <tr>
+          <th>経験年数</th>
+          <td>
+            <% if @user.years_experience.present? %>
+              <%= "#{@user.years_experience}年" %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>好きな音楽のジャンル</th>
+          <td>
+            <% if @user.category.present? %>
+              <%= @user.category %>
+            <% else %>
+              未設定
+            <% end %>
           </td>
         </tr>
         <tr>
           <th>プロフィール</th>
           <td>
-            <%= current_user.profile %>
+            <%= @user.profile %>
           </td>
         </tr>
         <tr>
