@@ -11,8 +11,8 @@
         <tr>
           <th>アイコン画像</th>
           <td>
-            <% if current_user.user_img? %>
-              <%= image_tag current_user.user_img.url, class: "rounded-circle", size: "40x40", alt: "User_image" %>
+            <% if @user.user_img.attached? %>
+              <%= image_tag current_user.user_img, class: "rounded-circle", size: "40x40" %>
             <% else %>
               <%= image_tag "default_img.png", class: "rounded-circle", size: "40x40", alt: "Defualt image" %>
             <% end %>
