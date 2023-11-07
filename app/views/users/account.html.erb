@@ -63,7 +63,11 @@
         <tr>
           <th>プロフィール</th>
           <td>
-            <%= @user.profile %>
+            <% if @user.profile.present? %>
+              <%= @user.profile %>
+            <% else %>
+              未設定
+            <% end %>
           </td>
         </tr>
         <tr>
