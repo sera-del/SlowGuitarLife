@@ -6,7 +6,7 @@
 <div class="bg-image", style="padding: 40px 10px">
   <div class=main-container>
     <h2>|ログイン情報を入力</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_with model: @user, url: user_session_path do |f| %>
       <div class="field">
         <%= f.label :email, "メールアドレス" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
