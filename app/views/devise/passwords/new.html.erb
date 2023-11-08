@@ -4,9 +4,9 @@
     <p>パスワードをお忘れの場合は、ご登録のメールアドレス宛に再設定用のURLをお送りいたします。</p>
   </div>
 </div>
-<div class="bg-image", style="padding: 40px 10px">
+<div class="bg-image", style="padding: 80px 10px; height: 500px">
   <div class=main-container>
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= form_with model: @user, url: user_password_path do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
