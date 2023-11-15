@@ -1,0 +1,13 @@
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
+  <div class="title-container">
+    <h2>退会画面</h2>
+  </div>
+</div>
+<div class="bg-image", style="padding:150px 10px; height:500px">
+  <div class=main-container>
+    <h1>本当に退会しますか？</h1>
+    <p>退会する場合は、「退会する」をクリックしてください。</p>
+    <%= link_to "退会しない", users_account_path, class: "btn btn-primary ms-3" %>
+    <%= link_to "退会する", users_withdraw_path, class: "btn btn-danger ms-3", data: { confirm: "本当に退会しますか？" } %>
+  </div>
+</div>
