@@ -12,7 +12,7 @@
         <% else %>
           <p><%= link_to ">新規登録はこちら", new_user_registration_path, class: "btn btn-info btn-lg col-6" %></p>
           <%= link_to ">ログインはこちら", new_user_session_path, class: "btn btn-outline-info btn-lg col-5" %>
-          <%= link_to ">ゲストログインはこちら", "#", class: "btn btn-outline-info btn-lg col-5" %>
+          <%= link_to ">ゲストログインはこちら", users_guest_sign_in_path, method: :post, class: "btn btn-outline-info btn-lg col-5" %>
         <% end %>
         <div class="text-white">
           <hr class="top-title-hr">
