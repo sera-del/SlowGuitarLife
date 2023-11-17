@@ -38,6 +38,6 @@
     <% end %>
     <hr class="hr-black">
     <p>すでにアカウントをお持ちの場合は<%= render "devise/shared/links" %>してください。</p>
-    <p>アカウントを作成せずに利用する場合は、ゲストログインをお使いください。</p>
+    <p>アカウントを作成せずに利用する場合は、<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>をお使いください。</p>
   </div>
 </div>

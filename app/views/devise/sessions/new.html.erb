@@ -30,6 +30,6 @@
     <% end %>
     <hr class="hr-black">
     <p>パスワードをお忘れの場合は<%= link_to "再発行", new_user_password_path %>してください。</p>
-    <p>アカウントをお持ちでない場合は、<%= link_to "登録", new_user_registration_path %>を行うかゲストログインをしてください。</p>
+    <p>アカウントをお持ちでない場合は、<%= link_to "登録", new_user_registration_path %>を行うか<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>をしてください。</p>
   </div>
 </div>

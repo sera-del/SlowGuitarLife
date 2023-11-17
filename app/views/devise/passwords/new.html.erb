@@ -20,6 +20,6 @@
     <% end %>
     <hr class="hr-black">
     <p>パスワードをご存知の場合は、<%= link_to "ログイン", new_user_session_path %>してください。</p>
-    <p>アカウントをお持ちでない場合は、<%= link_to "登録", new_user_registration_path %>を行うかゲストログインをしてください。</p>
+    <p>アカウントをお持ちでない場合は、<%= link_to "登録", new_user_registration_path %>を行うか<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>をしてください。</p>
   </div>
 </div>
