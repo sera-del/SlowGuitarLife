@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'users/sign_out',       to: 'devise/sessions#destroy'
-    get 'users/guest_sign_in',  to: 'users/sessions#guest_sign_in'
+    post 'users/sign_out',       to: 'devise/sessions#destroy'
+    post 'users/guest_sign_in',  to: 'users/sessions#guest_sign_in'
   end
 
   get 'users/account',    to: 'users#account'
   get 'users/check',      to: 'users#check'
-  get 'users/withdraw',   to: 'users#withdraw'
+  patch 'users/withdraw',   to: 'users#withdraw'
 
   resources :users, only: [:show]
 
