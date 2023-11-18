@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'users/account',    to: 'users#account'
   get 'users/check',      to: 'users#check'
-  patch 'users/withdraw',   to: 'users#withdraw'
+  patch 'users/withdraw', to: 'users#withdraw'
 
   resources :users, only: [:show]
 
