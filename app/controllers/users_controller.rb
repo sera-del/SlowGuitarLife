@@ -8,10 +8,14 @@ class UsersController < ApplicationController
   end
 
   def withdraw
-    @user = User.find(current_user.id)
-    @user.update(is_deleted: true)
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    @user = current_user
+    if @user.email == "sample@example.com"
+      redirect_to :root, alert: "ゲストユーザーは削除できません"
+    else
+      @user = User.find(current_user.id)
+      @user.update(is_deleted: true)
+      reset_session
+      redirect_to root_path, notice: "退会処理を実行いたしました"
+    end
   end
 end
