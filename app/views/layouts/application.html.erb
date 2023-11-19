@@ -8,8 +8,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet"/>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
   </head>
-
   <body>
     <div class="bg-image", style="background-image: url('<%= asset_path('body-img.jpeg') %>'); height: 100%">
       <%= render "shared/header" %>
@@ -17,7 +18,5 @@
       <%= yield %>
       <%= render "shared/footer" %>
     </div>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
   </body>
 </html>
