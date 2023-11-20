@@ -1,5 +1,9 @@
 body {
-    padding-top: 58px;
+    padding-top: 57px;
+}
+
+.header-right {
+    margin: 0 5px;
 }
 
 .title-container {
