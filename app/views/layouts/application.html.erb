@@ -13,8 +13,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
   </head>
   <body>
+    <%= render "shared/header" %>
     <div class="bg-image", style="background-image: url('<%= asset_path('body-img.jpeg') %>'); height: 100%">
-      <%= render "shared/header" %>
       <%= render "shared/notice" %>
       <%= yield %>
       <%= render "shared/footer" %>
