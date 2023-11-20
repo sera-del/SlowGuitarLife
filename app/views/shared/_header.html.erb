@@ -52,11 +52,9 @@
             </ul>
           </div>
         <% else %>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li><%= link_to "ログイン", new_user_session_path, class: "nav-link" %></li>
-            <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-link" %></li>
-            <li><%= link_to "新規登録", new_user_registration_path, class: "nav-link" %></li>
-          </ul>
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link header-right" %>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-link header-right" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link header-right" %>
         <% end %>
       </div>
     </div>
