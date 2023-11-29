@@ -5,10 +5,14 @@ RSpec.describe "User", type: :system do
 
   describe "ユーザー機能テスト" do
     describe "ログイン前" do
+      before do
+        visit root_path
+      end
+
       describe "ユーザー新規登録" do
         context "フォームの入力値が正常の場合" do
           it "ユーザーの新規作成が成功すること" do
-            visit new_user_registration_path
+            click_link ">新規登録はこちら"
             fill_in "ユーザー名", with: "user"
             fill_in "メールアドレス", with: "sample@example.com"
             fill_in "パスワード", with: "password"
@@ -21,7 +25,7 @@ RSpec.describe "User", type: :system do
 
         context "メールアドレスが未入力の場合" do
           it "ユーザーの新規作成が失敗すること" do
-            visit new_user_registration_path
+            click_link ">新規登録はこちら"
             fill_in "ユーザー名", with: "user"
             fill_in "メールアドレス", with: nil
             fill_in "パスワード", with: "password"
@@ -34,7 +38,7 @@ RSpec.describe "User", type: :system do
 
         context "すでに同じメールアドレスが登録されている場合" do
           it "ユーザーの新規作成が失敗すること" do
-            visit new_user_registration_path
+            click_link ">新規登録はこちら"
             fill_in "ユーザー名", with: "user"
             fill_in "メールアドレス", with: user.email
             fill_in "パスワード", with: "password"
@@ -47,9 +51,13 @@ RSpec.describe "User", type: :system do
       end
 
       describe "ユーザーログイン" do
+        before do
+          visit root_path
+        end
+
         context "ユーザー登録をしている場合" do
           it "ログインができること" do
-            visit new_user_session_path
+            click_link ">ログインはこちら"
             fill_in "メールアドレス", with: user.email
             fill_in "パスワード", with: user.password
             click_button "ログインする"
@@ -60,7 +68,7 @@ RSpec.describe "User", type: :system do
 
         context "ユーザー登録をしていない場合" do
           it "ログインできないこと" do
-            visit new_user_session_path
+            click_link ">ログインはこちら"
             fill_in "メールアドレス", with: "a@gmail.com"
             fill_in "パスワード", with: "123456"
             click_button "ログインする"
@@ -68,16 +76,23 @@ RSpec.describe "User", type: :system do
             expect(page).to have_content "メールアドレスまたはパスワードが違います。"
           end
         end
+
+        context "ゲストログインを使用したい場合" do
+          it "ゲストログインができること" do
+            click_link "ゲストログイン"
+            expect(page).to have_content "ゲストユーザーとしてログインしました。"
+          end
+        end
       end
     end
 
     describe "ログイン後" do
-      describe "ユーザー編集" do
-        before do
-          sign_in user
-          visit users_account_path
-        end
+      before do
+        sign_in user
+        visit users_account_path
+      end
 
+      describe "ユーザー編集" do
         context "フォームの入力値が正常の場合" do
           it "ユーザーの編集に成功すること" do
             click_link "編集する"
