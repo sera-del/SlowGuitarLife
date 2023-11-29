@@ -1,0 +1,35 @@
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
+  <div class="title-container">
+    <h2>ログイン</h2>
+  </div>
+</div>
+<div class="bg-image", style="padding: 40px 10px">
+  <div class=main-container>
+    <h2>|ログイン情報を入力</h2>
+    <%= form_with model: @user, url: user_session_path do |f| %>
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "パスワード" %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "ログインする", class: "btn btn-info" %>
+      </div>
+    <% end %>
+    <hr class="hr-black">
+    <p>パスワードをお忘れの場合は<%= link_to "再発行", new_user_password_path %>してください。</p>
+    <p>アカウントをお持ちでない場合は、<%= link_to "登録", new_user_registration_path %>を行うか<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>をしてください。</p>
+  </div>
+</div>

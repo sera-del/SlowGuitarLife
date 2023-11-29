@@ -1,0 +1,25 @@
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
+  <div class="title-container">
+    <h2>パスワード再設定</h2>
+    <p>パスワードをお忘れの場合は、ご登録のメールアドレス宛に再設定用のURLをお送りいたします。</p>
+  </div>
+</div>
+<div class="bg-image", style="padding: 80px 10px; height: 500px">
+  <div class=main-container>
+    <%= form_with model: @user, url: user_password_path do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "パスワード再設定メールを送信する", class: "btn btn-info" %>
+      </div>
+    <% end %>
+    <hr class="hr-black">
+    <p>パスワードをご存知の場合は、<%= link_to "ログイン", new_user_session_path %>してください。</p>
+    <p>アカウントをお持ちでない場合は、<%= link_to "登録", new_user_registration_path %>を行うか<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>をしてください。</p>
+  </div>
+</div>

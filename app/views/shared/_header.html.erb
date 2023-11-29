@@ -1,0 +1,62 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">投稿</a>
+          </li>
+          <li class="nav-item">
+            <div class="input-group">
+              <input type="text" class="form-control rounded" placeholder="キーワードで投稿を検索" aria-label="Search" aria-describedby="search-addon" />
+              <button type="button" class="btn btn-primary">検索</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex align-items-center">
+        <% if user_signed_in? %>
+          <div class="dropdown">
+            <span
+              class="dropdown-toggle align-items-center hidden-arrow"
+              id="navbarDropdownMenuAvatar"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              <% if current_user.user_img.attached? %>
+                <%= image_tag current_user.user_img, class: "rounded-circle", size: "40x40" %>
+              <% else %>
+                <%= image_tag "default_img.png", class: "rounded-circle", size: "40x40", alt: "Defualt image" %>
+              <% end %>
+                <%= "#{current_user.username}" %>
+            </span>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+              <li><%= link_to "マイページ", user_path(current_user), class: "dropdown-item" %></li>
+              <li><%= link_to "設定", users_account_path, class: "dropdown-item" %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delite, data: { confirm: "ログアウトしますか？" }, class: "dropdown-item" %></li>
+              <li><%= link_to "退会", users_check_path, class: "dropdown-item" %></li>
+              <li><%= link_to "お問い合わせ", "#", class: "dropdown-item" %></li>
+            </ul>
+          </div>
+        <% else %>
+            <%= link_to "ログイン", new_user_session_path, class: "nav-link header-right" %>
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-link header-right" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "nav-link header-right" %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>

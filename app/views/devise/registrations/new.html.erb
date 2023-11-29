@@ -1,0 +1,43 @@
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
+  <div class="title-container">
+    <h2>ユーザー登録</h2>
+  </div>
+</div>
+<div class="bg-image", style="padding: 40px 10px">
+  <div class=main-container>
+    <h2>|アカウントを作成</h2>
+    <%= form_with model: @user, url: user_registration_path do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :username, "ユーザー名" %><br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "パスワード" %>
+        <% if @minimum_password_length %>
+        <em>(最低<%= @minimum_password_length %>文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "確認用パスワード" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録する", class: "btn btn-info" %>
+      </div>
+    <% end %>
+    <hr class="hr-black">
+    <p>すでにアカウントをお持ちの場合は<%= render "devise/shared/links" %>してください。</p>
+    <p>アカウントを作成せずに利用する場合は、<%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>をお使いください。</p>
+  </div>
+</div>

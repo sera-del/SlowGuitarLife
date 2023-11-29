@@ -1,0 +1,85 @@
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
+  <div class="title-container">
+    <h2>アカウント情報</h2>
+    <p>アカウント情報では現在登録中の情報をご確認いただけます。編集する場合は、編集するボタンをクリックしてください。</p>
+  </div>
+</div>
+<div class="bg-image", style="padding: 50px 10px">
+  <div class="main-container">
+    <table class="table align-middle mb-3 bg-white">
+      <tbody>
+        <tr>
+          <th>アイコン画像</th>
+          <td>
+            <% if @user.user_img.attached? %>
+              <%= image_tag @user.user_img, class: "rounded-circle", size: "40x40" %>
+            <% else %>
+              <%= image_tag "default_img.png", class: "rounded-circle", size: "40x40", alt: "Defualt image" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>ユーザー名</th>
+          <td>
+            <%= @user.username %>
+          </td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td>
+            <%= @user.email %>
+          </td>
+        </tr>
+        <tr>
+          <th>ギターの種類</th>
+          <td>
+            <% if @user.guitar_type.present? %>
+              <%= @user.guitar_type %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>経験年数</th>
+          <td>
+            <% if @user.years_experience.present? %>
+              <%= "#{@user.years_experience}年" %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>好きな音楽のジャンル</th>
+          <td>
+            <% if @user.category.present? %>
+              <%= @user.category %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>プロフィール</th>
+          <td>
+            <% if @user.profile.present? %>
+              <%= @user.profile %>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
+          <td>
+            ********
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <%= link_to "編集する", edit_user_registration_path, class: "btn btn-info" %>
+    </div>
+  </div>
+</div>

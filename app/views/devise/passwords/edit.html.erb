@@ -1,0 +1,31 @@
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
+  <div class="title-container">
+    <h2>パスワード再設定</h2>
+  </div>
+</div>
+<div class="bg-image", style="padding: 80px 10px; height: 500px">
+  <div class=main-container>
+    <%= form_with model: @user, url: user_password_path, method: :patch do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :password, "新しいパスワード" %><br />
+        <% if @minimum_password_length %>
+          <em>(最低<%= @minimum_password_length %>文字以上)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "パスワード（確認）" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="actions">
+        <%= f.submit "パスワードを変更する", class: "btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
+</div>
