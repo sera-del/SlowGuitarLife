@@ -1,2 +1,7 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
+  <div class="title-container">
+    <h2>投稿一覧</h2>
+    <p>投稿一覧では、他のユーザーが投稿した内容を見ることができます。</p>
+    <p>総投稿数<%= Post.count %><p/>
+  </div>
+</div>
