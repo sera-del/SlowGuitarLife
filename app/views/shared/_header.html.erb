@@ -46,6 +46,7 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
               <li><%= link_to "マイページ", user_path(current_user), class: "dropdown-item" %></li>
               <li><%= link_to "設定", users_account_path, class: "dropdown-item" %></li>
+              <li><%= link_to "投稿する", new_post_path, class: "dropdown-item" %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delite, data: { confirm: "ログアウトしますか？" }, class: "dropdown-item" %></li>
               <li><%= link_to "退会", users_check_path, class: "dropdown-item" %></li>
               <li><%= link_to "お問い合わせ", "#", class: "dropdown-item" %></li>
