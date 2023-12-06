@@ -32,9 +32,9 @@
       </tbody>
     </table>
     <% if @post.user_id == current_user.id %>
-      <div>
-        <%= link_to "編集する", "#", class: "btn btn-info" %>
-      </div>
+        <%= link_to "編集する", edit_post_path, class: "btn btn-info" %>
+        <%= link_to "削除する", post_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+        <%= link_to "戻る", :back, class: "btn btn-success" %>
     <% end %>
   </div>
 </div>
