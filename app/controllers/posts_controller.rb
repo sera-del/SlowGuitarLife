@@ -5,15 +5,15 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @user = current_user
+    @user_id = current_user.id
   end
 
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to users_account_path(current_user), notice: "新規投稿をしました"
+      redirect_to user_path(current_user), notice: "新規投稿をしました"
     else
-      render :new
+      redirect_to new_post_path, alert: "未入力の項目があります。"
     end
   end
 
