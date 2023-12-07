@@ -21,20 +21,20 @@
           </tr>
           <tr>
             <th>
-              <%= f.label :content, "コメント" %>
-              <p>(250文字以内まで)</p>
-            </th>
-            <td>
-              <%= f.text_area :content, size: "40x5" %>
-            </td>
-          </tr>
-          <tr>
-            <th>
               <%= f.label :category, "おすすめのジャンル" %>
             </th>
             <td>
               <%= f.select :category, [["クラシック", "クラシック"], ["ロック", "ロック"], ["ポップス", "ポップス"], ["ジャズ", "ジャズ"], ["その他", "その他"]],
               include_blank: "選択してください" %>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :content, "コメント" %>
+              <p>(250文字以内まで)</p>
+            </th>
+            <td>
+              <%= f.text_area :content, size: "40x5" %>
             </td>
           </tr>
         </tbody>
