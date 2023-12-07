@@ -37,6 +37,15 @@
               <%= f.text_area :content, size: "40x5" %>
             </td>
           </tr>
+          <tr>
+            <th>
+              <%= f.label :youtube_url, "Youtube共有リンク" %>
+              <p>(https://youtu.be/ここを入力)</p>
+            </th>
+            <td>
+              <%= f.text_field :youtube_url, size: "40", placeholder: "https://youtu.be/ここを入力" %>
+            </td>
+          </tr>
         </tbody>
       </table>
       <%= f.hidden_field :user_id, value: @user_id %>

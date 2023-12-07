@@ -29,6 +29,16 @@
           <th>コメント</th>
           <td><%= @post.content %></td>
         </tr>
+        <tr>
+          <th>Youtube共有リンク</th>
+          <td>
+            <% if @post.youtube_url.present? %>
+              <iframe width="200" height="150" src="https://www.youtube.com/embed/<%= @post.youtube_url %>" allowfullscreen></iframe>
+            <% else %>
+              未設定
+            <% end %>
+          </td>
+        </tr>
       </tbody>
     </table>
     <% if @post.user_id == current_user.id %>
