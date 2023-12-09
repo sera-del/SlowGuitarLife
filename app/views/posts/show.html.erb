@@ -8,7 +8,7 @@
     <table class="table align-middle mb-3 bg-white">
       <tbody>
         <tr>
-          <th>アイコン画像</th>
+          <th class="fw-bold">アイコン画像</th>
           <td>
             <% if @post.user.user_img.attached? %>
               <%= image_tag @post.user.user_img, class: "rounded-circle", size: "40x40" %>
@@ -18,24 +18,26 @@
           </td>
         </tr>
         <tr>
-          <th>ユーザー名</th>
+          <th class="fw-bold">ユーザー名</th>
           <td><%= @post.user.username %></td>
         </tr>
         <tr>
-          <th>おすすめのジャンル</th>
+          <th class="fw-bold">おすすめのジャンル</th>
           <td><%= @post.category %></td>
         </tr>
         <tr>
-          <th>コメント</th>
+          <th class="fw-bold">コメント</th>
           <td><%= @post.content %></td>
         </tr>
         <tr>
-          <th>Youtube共有リンク</th>
+          <th class="fw-bold">Youtube動画</th>
           <td>
             <% if @post.youtube_url.present? %>
-              <iframe width="200" height="150" src="https://www.youtube.com/embed/<%= @post.youtube_url %>" allowfullscreen></iframe>
+              <div class="youtube">
+                <iframe src="https://www.youtube.com/embed/<%= @post.youtube_url %>" allowfullscreen></iframe>
+              </div>
             <% else %>
-              未設定
+              <p>未設定</p>
             <% end %>
           </td>
         </tr>
