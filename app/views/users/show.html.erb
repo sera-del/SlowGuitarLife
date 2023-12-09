@@ -10,34 +10,34 @@
     <h2 class="fw-bold"><%= @user.username %></h2>
     <p><%= @user.profile %></p>
     <table class="table table-sm">
-      <thead class="table-light">
-        <th>投稿数</th>
-        <th>ギターの種類</th>
-        <th>経験年数</th>
-        <th>好きな音楽のジャンル</th>
-      </thead>
-      <tbody>
-        <tr class="table-light">
-          <td><%= @posts.count %></td>
+      <tbody class="table-light">
+        <tr>
           <td>
+            <p class="fw-normal mb-1">投稿数</p>
+            <p class="text-muted mb-0"><%= @posts.count %></p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">ギターの種類</p>
             <% if @user.guitar_type.present? %>
-              <%= @user.guitar_type %>
+              <p class="text-muted mb-0"><%= @user.guitar_type %></p>
             <% else %>
-              未設定
+              <p class="text-muted mb-0">未設定</p>
             <% end %>
           </td>
           <td>
+            <p class="fw-normal mb-1">経験年数</p>
             <% if @user.years_experience.present? %>
-              <%= "#{@user.years_experience}年" %>
+              <p class="text-muted mb-0"><%= "#{@user.years_experience}年" %></p>
             <% else %>
-              未設定
+              <p class="text-muted mb-0">未設定</p>
             <% end %>
           </td>
           <td>
+            <p class="fw-normal mb-1">好きな音楽のジャンル</p>
             <% if @user.category.present? %>
-              <%= @user.category %>
+              <p class="text-muted mb-0"><%= @user.category %></p>
             <% else %>
-              未設定
+              <p class="text-muted mb-0">未設定</p>
             <% end %>
           </td>
         </tr>
