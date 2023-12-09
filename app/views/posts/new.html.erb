@@ -8,7 +8,7 @@
   <div class="main-container">
     <h3>|フレーズ内容を投稿</h3>
     <%= form_with model: @post do |f| %>
-      <table class="table align-middle mb-3 bg-white">
+      <table class="table table-sm align-middle mb-3 bg-white">
         <tbody>
           <tr>
             <th>
@@ -54,5 +54,33 @@
         <%= link_to "キャンセル", :back, class: "btn btn-success" %>
       </div>
     <% end %>
+    <div style="padding-bottom: 20px">
+      <%= form_tag(new_post_path, method: :get) do %>
+        <%= text_field_tag :youtube_search, "", placeholder:"ギター動画を検索" %>
+        <%= submit_tag '検索' %>
+      <% end %>
+    </div>
+    <div class="row">
+      <% @youtube_data.items.each do |item| %>
+        <div class="card-box col-sm-4">
+          <div class="card border-dark mb-3">
+            <div class="bd-placeholder-img card-img-top">
+              <% @snippet = item.snippet %>
+              <% @video_id = item.id.video_id %>
+              <div class="youtube">
+                <div>
+                  <iframe src="https://www.youtube.com/embed/<%= @video_id %>"
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="card-body">
+                <p><%= @snippet.title %></p>
+                <p>チャンネル名：<%= @snippet.channel_title %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

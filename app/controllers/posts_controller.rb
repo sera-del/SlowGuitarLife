@@ -1,4 +1,27 @@
 class PostsController < ApplicationController
+  require 'google/apis/youtube_v3'
+
+  def find_videos(keyword, after: 2.years.ago, before: Time.now)
+    youtube = Google::Apis::YoutubeV3::YouTubeService.new
+    youtube.key = Rails.application.credentials.google[:api_key]
+
+    keyword = params[:youtube_search]
+
+    next_page_token = nil
+
+    opt = {
+      q: keyword,
+      type: "video",
+      max_results: 9,
+      order: :viewCount,
+      page_token: next_page_token,
+      published_after: after.iso8601,
+      published_before: before.iso8601,
+    }
+
+    youtube.list_searches(:snippet, **opt)
+  end
+
   def index
     @posts = Post.all.includes(:user)
   end
@@ -6,6 +29,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @user_id = current_user.id
+    @youtube_data = find_videos(@keyword)
   end
 
   def create
@@ -23,6 +47,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @youtube_data = find_videos(@keyword)
   end
 
   def update
