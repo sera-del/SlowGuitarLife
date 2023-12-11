@@ -5,5 +5,6 @@ FactoryBot.define do
     content { "ドレミファソラシドを低いドから高いドまで順番に弾いてみましょう。" }
     category { "クラシック" }
     youtube_url { "NSuiLcamM5s" }
+    association :user
   end
 end
