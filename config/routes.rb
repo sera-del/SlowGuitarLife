@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'users/check',      to: 'users#check'
   patch 'users/withdraw', to: 'users#withdraw'
 
+  get '/tag_search', to: 'searches#tag_search'
+
   resources :users, only: [:show]
   resources :posts
 
