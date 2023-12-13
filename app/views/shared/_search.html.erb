@@ -1,8 +1,8 @@
-<div class="input-group", style="padding-bottom: 20px">
+<div class="input-group mb-2">
   <input type="text" class="form-control rounded" placeholder="キーワードで投稿を検索" aria-label="Search" aria-describedby="search-addon" />
   <button type="button" class="btn btn-primary">検索</button>
 </div>
-<div>
+<div class="mb-2">
   <%= form_with url: tag_search_path, local: true, method: :get do |f| %>
     <% tag = Post.select(:tag).distinct %>
       <%= f.collection_select(:word, tag, :tag, :tag) %>
