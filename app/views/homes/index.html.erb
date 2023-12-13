@@ -1,4 +1,4 @@
-<div class="p-5 text-center bg-image", style="background-image: url('<%= asset_path('guitar_top.jpg') %>'); height: 500px">
+<div class="p-5 text-center bg-image", style="background-image: url('<%= asset_path('guitar_top.jpg') %>'); height: 650px">
   <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
     <div class="d-flex justify-content-center align-items-center h-100">
       <div>
@@ -8,7 +8,7 @@
           <p class="mb-3">気になったフレーズを検索しよう！</p>
         </div>
         <% if user_signed_in? %>
-          <p><%= link_to ">ギターフレーズを投稿する", "#", class: "btn btn-info btn-lg col-6" %></p>
+          <p><%= link_to ">ギターフレーズを投稿する", new_post_path, class: "btn btn-info btn-lg col-6" %></p>
         <% else %>
           <p><%= link_to ">新規登録はこちら", new_user_registration_path, class: "btn btn-info btn-lg col-6" %></p>
           <%= link_to ">ログインはこちら", new_user_session_path, class: "btn btn-outline-info btn-lg col-5" %>

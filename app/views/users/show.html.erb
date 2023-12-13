@@ -10,34 +10,34 @@
     <h2 class="fw-bold"><%= @user.username %></h2>
     <p><%= @user.profile %></p>
     <table class="table table-sm">
-      <thead class="table-light">
-        <th>投稿数</th>
-        <th>ギターの種類</th>
-        <th>経験年数</th>
-        <th>好きな音楽のジャンル</th>
-      </thead>
-      <tbody>
-        <tr class="table-light">
-          <td>0</td>
+      <tbody class="table-light">
+        <tr>
           <td>
+            <p class="fw-normal mb-1">投稿数</p>
+            <p class="text-muted mb-0"><%= @posts.count %></p>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">ギターの種類</p>
             <% if @user.guitar_type.present? %>
-              <%= @user.guitar_type %>
+              <p class="text-muted mb-0"><%= @user.guitar_type %></p>
             <% else %>
-              未設定
+              <p class="text-muted mb-0">未設定</p>
             <% end %>
           </td>
           <td>
+            <p class="fw-normal mb-1">経験年数</p>
             <% if @user.years_experience.present? %>
-              <%= "#{@user.years_experience}年" %>
+              <p class="text-muted mb-0"><%= "#{@user.years_experience}年" %></p>
             <% else %>
-              未設定
+              <p class="text-muted mb-0">未設定</p>
             <% end %>
           </td>
           <td>
+            <p class="fw-normal mb-1">好きな音楽のジャンル</p>
             <% if @user.category.present? %>
-              <%= @user.category %>
+              <p class="text-muted mb-0"><%= @user.category %></p>
             <% else %>
-              未設定
+              <p class="text-muted mb-0">未設定</p>
             <% end %>
           </td>
         </tr>
@@ -48,5 +48,41 @@
 <div class="bg-image", style="padding: 50px 10px">
   <div class="main-container">
     <h3>|<%= @user.username %>の投稿一覧</h3>
+    <table class="table table-sm align-middle mb-0 bg-white">
+      <% @posts.each do |post| %>
+        <tbody>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <% if post.user.user_img.attached? %>
+                  <%= image_tag post.user.user_img, class: "rounded-circle", size: "40x40" %>
+                <% else %>
+                  <%= image_tag "default_img.png", class: "rounded-circle", size: "40x40", alt: "Defualt image" %>
+                <% end %>
+                <div class="ms-3">
+                  <p class="fw-bold mb-1"><%= post.user.username %></p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1"><%= post.title %></p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">カテゴリー</p>
+              <p class="text-muted mb-0"><%= post.category %></p>
+            </td>
+            <td>
+              <%= post.created_at.to_s(:date_jp) %>
+            </td>
+            <td>
+              <%= link_to "詳細", post_path(post.id), class: "btn btn-success" %>
+              <% if post.user_id == current_user.id %>
+                <%= link_to "削除", post_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
   </div>
 </div>

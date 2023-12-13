@@ -20,4 +20,6 @@ class User < ApplicationRecord
   validates :guitar_type, length: { maximum: 10 }
 
   has_one_attached :user_img
+
+  has_many :posts
 end

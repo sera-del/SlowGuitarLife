@@ -9,7 +9,7 @@
     <table class="table align-middle mb-3 bg-white">
       <tbody>
         <tr>
-          <th>アイコン画像</th>
+          <th class="fw-bold">アイコン画像</th>
           <td>
             <% if @user.user_img.attached? %>
               <%= image_tag @user.user_img, class: "rounded-circle", size: "40x40" %>
@@ -19,19 +19,19 @@
           </td>
         </tr>
         <tr>
-          <th>ユーザー名</th>
+          <th class="fw-bold">ユーザー名</th>
           <td>
             <%= @user.username %>
           </td>
         </tr>
         <tr>
-          <th>メールアドレス</th>
+          <th class="fw-bold">メールアドレス</th>
           <td>
             <%= @user.email %>
           </td>
         </tr>
         <tr>
-          <th>ギターの種類</th>
+          <th class="fw-bold">ギターの種類</th>
           <td>
             <% if @user.guitar_type.present? %>
               <%= @user.guitar_type %>
@@ -41,7 +41,7 @@
           </td>
         </tr>
         <tr>
-          <th>経験年数</th>
+          <th class="fw-bold">経験年数</th>
           <td>
             <% if @user.years_experience.present? %>
               <%= "#{@user.years_experience}年" %>
@@ -51,7 +51,7 @@
           </td>
         </tr>
         <tr>
-          <th>好きな音楽のジャンル</th>
+          <th class="fw-bold">好きな音楽のジャンル</th>
           <td>
             <% if @user.category.present? %>
               <%= @user.category %>
@@ -61,7 +61,7 @@
           </td>
         </tr>
         <tr>
-          <th>プロフィール</th>
+          <th class="fw-bold">プロフィール</th>
           <td>
             <% if @user.profile.present? %>
               <%= @user.profile %>
@@ -71,7 +71,7 @@
           </td>
         </tr>
         <tr>
-          <th>パスワード</th>
+          <th class="fw-bold">パスワード</th>
           <td>
             ********
           </td>

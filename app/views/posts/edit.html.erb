@@ -1,0 +1,86 @@
+<div class="bg-image", style="background-image: url('<%= asset_path('title-img.jpeg') %>')">
+  <div class="title-container">
+    <h2>投稿編集</h2>
+    <p>投稿した内容を編集できます。</p>
+  </div>
+</div>
+<div class="bg-image", style="padding: 50px 10px">
+  <div class="main-container">
+    <h3>|投稿内容を編集</h3>
+    <%= form_with model: @post do |f| %>
+      <table class="table align-middle mb-3 bg-white">
+        <tbody>
+          <tr>
+            <th>
+              <%= f.label :title, "タイトル" %>
+              <p>(20文字以内まで)</p>
+            </th>
+            <td>
+              <%= f.text_field :title, size: "40" %>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :category, "カテゴリー" %>
+            </th>
+            <td>
+              <%= f.select :category, [["クラシック", "クラシック"], ["ロック", "ロック"], ["ポップス", "ポップス"], ["ジャズ", "ジャズ"], ["その他", "その他"]],
+              include_blank: "選択してください" %>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :content, "コメント" %>
+              <p>(250文字以内まで)</p>
+            </th>
+            <td>
+              <%= f.text_area :content, size: "40x5" %>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :youtube_url, "Youtube共有リンク" %>
+              <p>(https://youtu.be/ここを入力)</p>
+            </th>
+            <td>
+              <%= f.text_field :youtube_url, size: "40", placeholder: "https://youtu.be/ここを入力" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= f.hidden_field :user_id, value: @user_id %>
+      <div class="actions">
+        <%= f.submit "更新する", class: "btn btn-info" %>
+        <%= link_to "キャンセル", :back, class: "btn btn-success" %>
+      </div>
+    <% end %>
+    <div style="padding-bottom: 20px">
+      <%= form_tag(edit_post_path, method: :get) do %>
+        <%= text_field_tag :youtube_search, "", placeholder:"ギター動画を検索" %>
+        <%= submit_tag '検索' %>
+      <% end %>
+    </div>
+    <div class="row">
+      <% @youtube_data.items.each do |item| %>
+        <div class="card-box col-sm-4">
+          <div class="card border-dark mb-3">
+            <div class="bd-placeholder-img card-img-top">
+              <% @snippet = item.snippet %>
+              <% @video_id = item.id.video_id %>
+              <div class="youtube">
+                <div>
+                  <iframe src="https://www.youtube.com/embed/<%= @video_id %>"
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="card-body">
+                <p><%= @snippet.title %></p>
+                <p>チャンネル名：<%= @snippet.channel_title %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
