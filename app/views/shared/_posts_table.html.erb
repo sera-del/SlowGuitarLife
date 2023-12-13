@@ -23,7 +23,7 @@
         </td>
         <td>
           <p class="fw-normal mb-1">タグ</p>
-          <p class="text-muted mb-0"><%= link_to post.tag, tag_search_path(word: post.tag) %></p>
+          <p class="text-muted mb-0"><%= link_to post.tag, tag_search_posts_path(word: post.tag) %></p>
         </td>
         <td>
           <%= post.created_at.to_s(:date_jp) %>
