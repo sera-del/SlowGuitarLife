@@ -15,10 +15,12 @@ Rails.application.routes.draw do
   get 'users/check',      to: 'users#check'
   patch 'users/withdraw', to: 'users#withdraw'
 
-  get '/tag_search', to: 'searches#tag_search'
-
   resources :users, only: [:show]
-  resources :posts
+  resources :posts do
+    collection do
+      get 'tag_search', to: 'posts#tag_search', as: :tag_search
+    end
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
