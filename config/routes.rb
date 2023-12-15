@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'tag_search', to: 'posts#tag_search', as: :tag_search
+      get 'keyword_search', to: 'posts#keyword_search', as: :keyword_search
     end
   end
 
