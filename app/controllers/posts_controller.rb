@@ -71,6 +71,7 @@ class PostsController < ApplicationController
   end
 
   def keyword_search
+    @posts = Post.search(params[:keyword])
   end
 
   private
