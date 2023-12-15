@@ -1,0 +1,7 @@
+<div class="input-group mb-2 d-flex justify-content-center">
+  <%= form_with url: tag_search_posts_path, local: true, method: :get do |f| %>
+    <% tag = Post.select(:tag).distinct %>
+      <%= f.collection_select(:word, tag, :tag, :tag) %>
+      <%= f.submit "タグ検索", class: "btn btn-primary" %>
+  <% end %>
+</div>
