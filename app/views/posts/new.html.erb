@@ -12,7 +12,7 @@
         <tbody>
           <tr>
             <th>
-              <%= f.label :title, "タイトル" %>
+              <%= f.label :title, "タイトル(必須)" %>
               <p>(20文字以内まで)</p>
             </th>
             <td>
@@ -21,7 +21,7 @@
           </tr>
           <tr>
             <th>
-              <%= f.label :category, "カテゴリー" %>
+              <%= f.label :category, "カテゴリー(必須)" %>
             </th>
             <td>
               <%= f.select :category, [["クラシック", "クラシック"], ["ロック", "ロック"], ["ポップス", "ポップス"], ["ジャズ", "ジャズ"], ["その他", "その他"]],
@@ -30,11 +30,19 @@
           </tr>
           <tr>
             <th>
-              <%= f.label :content, "コメント" %>
+              <%= f.label :content, "コメント(必須)" %>
               <p>(250文字以内まで)</p>
             </th>
             <td>
               <%= f.text_area :content, size: "40x5" %>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :tag, "タグ(必須)" %>
+            </th>
+            <td>
+              <%= f.text_field :tag %>
             </td>
           </tr>
           <tr>

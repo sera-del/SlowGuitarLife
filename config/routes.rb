@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   patch 'users/withdraw', to: 'users#withdraw'
 
   resources :users, only: [:show]
-  resources :posts
+  resources :posts do
+    collection do
+      get 'tag_search', to: 'posts#tag_search', as: :tag_search
+      get 'keyword_search', to: 'posts#keyword_search', as: :keyword_search
+    end
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

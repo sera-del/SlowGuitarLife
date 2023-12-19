@@ -119,12 +119,13 @@ RSpec.describe "User", type: :system do
 
       describe "ユーザーログアウト" do
         before do
+          driven_by :selenium
           sign_in user
           visit root_path
         end
 
         context "ログインしている場合" do
-          it "ログアウトできること" do
+          it "ログアウトできること", js: true do
             find("#navbarDropdownMenuAvatar").click
             click_link "ログアウト"
             accept_alert

@@ -20,10 +20,7 @@
             <%= link_to "投稿", posts_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <div class="input-group">
-              <input type="text" class="form-control rounded" placeholder="キーワードで投稿を検索" aria-label="Search" aria-describedby="search-addon" />
-              <button type="button" class="btn btn-primary">検索</button>
-            </div>
+            <%= render "shared/keyword_search_form" %>
           </li>
         </ul>
       </div>
@@ -49,7 +46,6 @@
               <li><%= link_to "投稿する", new_post_path, class: "dropdown-item" %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delite, data: { confirm: "ログアウトしますか？" }, class: "dropdown-item" %></li>
               <li><%= link_to "退会", users_check_path, class: "dropdown-item" %></li>
-              <li><%= link_to "お問い合わせ", "#", class: "dropdown-item" %></li>
             </ul>
           </div>
         <% else %>

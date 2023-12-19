@@ -65,9 +65,18 @@ class PostsController < ApplicationController
     redirect_to user_path(current_user), notice: "投稿を削除しました"
   end
 
+  def tag_search
+    @word = params[:word]
+    @posts = Post.where(tag: @word)
+  end
+
+  def keyword_search
+    @posts = Post.search(params[:keyword])
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :category, :youtube_url).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :category, :youtube_url, :tag).merge(user_id: current_user.id)
   end
 end
