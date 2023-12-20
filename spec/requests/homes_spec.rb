@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Homes", type: :request do
   describe "トップページのテスト" do
-
     before do
       get root_path
     end
