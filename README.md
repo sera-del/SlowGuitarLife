@@ -29,7 +29,9 @@ https://slow-guitar-life-1e95e25b613d.herokuapp.com
 # 使用技術
 bootstrapテンプレートMDB(CDN経由)</br>
 Github</br>
-SQLite3</br>
+Heroku</br>
+PostgreSQL(本番環境)</br>
+SQLite3(開発環境)</br>
 Ruby on Rails(バージョン6.1.7.6)</br>
 Youtube Data API v3</br>
 Devise</br>
