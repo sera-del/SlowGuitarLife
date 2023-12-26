@@ -27,16 +27,44 @@ https://slow-guitar-life-1e95e25b613d.herokuapp.com
 ![新規投稿3](./app/assets/images/new_post3.png)
 
 # 使用技術
+Ruby 3.2.2</br>
+Ruby on Rails 6.1.7.6</br>
 bootstrapテンプレートMDB(CDN経由)</br>
 Github</br>
 Heroku</br>
 PostgreSQL(本番環境)</br>
 SQLite3(開発環境)</br>
-Ruby on Rails(バージョン6.1.7.6)</br>
 Youtube Data API v3</br>
-Devise</br>
 rubocop</br>
 RSpec</br>
+
+# 機能一覧
+* ユーザー登録、ログイン機能(Devise)
+    * ゲストログイン機能
+    * ユーザー情報編集機能
+    * パスワード再設定機能
+    * 退会機能
+* 投稿機能
+    * 新規投稿機能
+    * 投稿編集機能
+    * 投稿削除機能
+* 検索機能
+    * タグ検索機能
+    * あいまい検索機能(投稿名、カテゴリ名で検索可)
+    * Youtube動画検索機能(Youtube Data API v3)
+
+# テスト
+* RSpec
+    * Model Spec
+        * post_spec.rb
+        * user_spec.rb
+    * Request Spec
+        * homes_spec.rb
+        * posts_spec.rb
+        * users_spec.rb
+    * System Spec
+        * posts_spec.rb
+        * users_spec.rb
 
 # ER図
 ![ER図](./app/assets/images/ER.png)
