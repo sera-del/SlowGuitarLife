@@ -62,3 +62,4 @@ gem 'rails-i18n'
 gem 'devise'
 gem 'google-api-client', '~> 0.11'
 gem 'pg', group: :production
+gem "aws-sdk-s3", require: false
