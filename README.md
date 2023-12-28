@@ -37,6 +37,7 @@ SQLite3(開発環境)</br>
 Youtube Data API v3</br>
 rubocop</br>
 RSpec</br>
+AWS S3</br>
 
 # 機能一覧
 * ユーザー登録、ログイン機能(Devise)
