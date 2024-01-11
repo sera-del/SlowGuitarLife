@@ -8,7 +8,7 @@
           <p class="mb-3">気になった動画を検索しよう！</p>
         </div>
         <% if user_signed_in? %>
-          <p><%= link_to ">ギターフレーズを投稿する", new_post_path, class: "btn btn-info btn-lg col-6" %></p>
+          <p><%= link_to ">ギター動画を投稿する", new_post_path, class: "btn btn-info btn-lg col-6" %></p>
         <% else %>
           <p><%= link_to ">新規登録はこちら", new_user_registration_path, class: "btn btn-info btn-lg col-6" %></p>
           <%= link_to ">ログインはこちら", new_user_session_path, class: "btn btn-outline-info btn-lg col-5" %>
