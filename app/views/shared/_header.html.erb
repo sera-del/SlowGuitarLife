@@ -18,7 +18,19 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "投稿", posts_path, class: "nav-link" %>
+            <%= link_to "投稿一覧", posts_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "クラシック", keyword_search_posts_path(keyword: "クラシック"), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ロック", keyword_search_posts_path(keyword: "ロック"), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ポップス", keyword_search_posts_path(keyword: "ポップス"), class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ジャズ", keyword_search_posts_path(keyword: "ジャズ"), class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= render "shared/keyword_search_form" %>
